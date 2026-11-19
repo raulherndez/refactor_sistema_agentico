@@ -1,3 +1,4 @@
+@'
 # Sistema Agéntico Modular
 
 Proyecto de ejemplo en Python para demostrar cómo separar la lógica determinista, la configuración y las instrucciones de comportamiento de un sistema agéntico.
@@ -60,6 +61,35 @@ La salida incluye:
 - Skills cargadas.
 - Vista previa del contenido de entrada.
 - Longitud del `system_prompt` ensamblado.
+
+## Ejecución y verificación en PowerShell
+
+Desde la raíz del proyecto (`C:\Users\raulh\OneDrive\Desktop\refactor_sistema_agentico`):
+
+1. Correr la suite de pruebas con `unittest`:
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+2. Ejecutar el flujo principal y exportar el plan a JSON:
+
+```powershell
+python main.py inputs\muestra.txt --export-plan
+```
+
+Probar el agente ejecutor con un archivo de salida personalizado:
+
+```powershell
+python main.py inputs\muestra.txt --agent agente_ejecutor --export-plan outputs\ejecutor_plan.json
+```
+
+3. Comprobar que se generó el JSON exportado:
+
+```powershell
+Test-Path outputs\execution_plan.json
+Get-Content outputs\execution_plan.json -TotalCount 25
+```
 
 ## Agentes disponibles
 
@@ -165,3 +195,8 @@ Skills cargadas: skill_diagnostico, skill_reporte
 - Configuración ausente: se indica la ubicación esperada de `settings.json`.
 - Agente inexistente o sin skills asignadas: se muestran los agentes disponibles.
 - Skill o agente definido en la configuración pero ausente del disco: se indica el archivo esperado.
+'@ | Set-Content -Path README.md -Encoding UTF8
+
+git add README.md
+git commit -m "Add PowerShell execution and verification section to README"
+git push
