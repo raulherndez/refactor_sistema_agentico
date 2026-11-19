@@ -1,0 +1,17 @@
+﻿{
+  "project_name": "refactor_sistema_agentico",
+  "model": "gpt-4o-mini",
+  "temperature": 0.2,
+  "max_retries": 2,
+  "timeout_seconds": 30,
+  "paths": {
+    "agents_dir": "agents",
+    "skills_dir": "skills",
+    "inputs_dir": "inputs"
+  },
+  "default_agent": "agente_analista",
+  "agent_skills": {
+    "agente_analista": ["skill_diagnostico", "skill_reporte"],
+    "agente_ejecutor": ["skill_refactorizacion", "skill_reporte"]
+  }
+}

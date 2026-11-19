@@ -1,0 +1,1 @@
+﻿Módulo monolítico que lee parámetros fijos, arma prompts dentro del código y escribe reportes sin separar capas.
